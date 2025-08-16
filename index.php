@@ -216,7 +216,7 @@ document.getElementById("patient-form").addEventListener("submit", async functio
   };
 
   try {
-    const response = await fetch("http://localhost/Hospital-Management/api/add_patient.php", {
+    const response = await fetch("http://localhost/Hospital-ManagementPHP/api/add_patient.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
