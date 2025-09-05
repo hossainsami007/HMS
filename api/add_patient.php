@@ -8,7 +8,7 @@ if ($conn->connect_error){
 }
 
 $data = json_decode(file_get_contents("php://input"), true);
-
+//added so that I can upload it on my branch
 //Validate inputs
 $fname = $data["fname"];
 $lname = $data["lname"];
