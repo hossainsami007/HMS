@@ -23,7 +23,7 @@ if(isset($_GET['cancel']))
   //   $prescription = $_GET['prescription'];
   //   $query=mysqli_query($con,"insert into prestb(doctor,pid,ID,appdate,apptime,disease,allergy,prescription) values ('$doctor',$pid,$ID,'$appdate','$apptime','$disease','$allergy','$prescription');");
   //   if($query)
-  //   {
+`  //   {
   //     echo "<script>alert('Prescribed successfully!');</script>";
   //   }
   //   else{
