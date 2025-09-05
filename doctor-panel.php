@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <?php
 include('func1.php');
+<<<<<<< HEAD
 $con=mysqli_connect("localhost","root","","hospitalms");
+=======
+$con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
 $doctor=$_SESSION['dname'];
 if(isset($_GET['cancel']))
 {
@@ -180,7 +184,11 @@ if(isset($_GET['cancel']))
                 </thead>
                 <tbody>
                   <?php 
+<<<<<<< HEAD
                     $con=mysqli_connect("localhost","root","","hospitalms");
+=======
+                    $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
                     global $con;
                     $dname = $_SESSION['dname'];
                     $query = "select pid,ID,fname,lname,gender,email,contact,appdate,apptime,userStatus,doctorStatus from appointmenttb where doctor='$dname';";
@@ -267,7 +275,11 @@ if(isset($_GET['cancel']))
                 <tbody>
                   <?php 
 
+<<<<<<< HEAD
                     $con=mysqli_connect("localhost","root","","hospitalms");
+=======
+                    $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
                     global $con;
 
                     $query = "select pid,fname,lname,ID,appdate,apptime,disease,allergy,prescription from prestb where doctor='$doctor';";
@@ -317,7 +329,11 @@ if(isset($_GET['cancel']))
                 <tbody>
                   <?php 
 
+<<<<<<< HEAD
                     $con=mysqli_connect("localhost","root","","hospitalms");
+=======
+                    $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
                     global $con;
 
                     $query = "select * from appointmenttb;";

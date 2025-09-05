@@ -11,6 +11,11 @@
 <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
+<<<<<<< HEAD
+=======
+<!------ Include the above in your HEAD tag ---------->
+
+>>>>>>> origin/dev
 <style >
      .form-control {
     border-radius: 0.75rem;
@@ -216,11 +221,20 @@ document.getElementById("patient-form").addEventListener("submit", async functio
   };
 
   try {
+<<<<<<< HEAD
     const response = await fetch("http://localhost/Hospital-ManagementPHP/api/add_patient.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
+=======
+    const response = await fetch("api/add_patient.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+});
+
+>>>>>>> origin/dev
 
     const result = await response.json();
     alert(result.message || result.error || "No response from server");

@@ -1,7 +1,11 @@
 <?php
 header('Content-Type: application/json');
 
+<<<<<<< HEAD
 $conn = new mysqli("localhost", "root", "", "hospitalms");
+=======
+$conn = new mysqli("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
 if ($conn->connect_error) {
     echo json_encode(["error" => "DB connection failed"]);
     exit();

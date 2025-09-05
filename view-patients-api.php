@@ -25,7 +25,11 @@
      </table>
 
 <script>
+<<<<<<< HEAD
 	fetch('http://localhost/Hospital-ManagementPHP/api/get_patients.php')
+=======
+	fetch("api/get_patients.php")
+>>>>>>> origin/dev
 	 .then(response => response.json())
 	 .then(data => {
 	 	const tbody = document.getElementById('patientData');
