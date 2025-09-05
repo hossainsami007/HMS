@@ -1,84 +1,62 @@
+// Edited in araf branch
 <?php
 session_start();
-<<<<<<< HEAD
 $con=mysqli_connect("localhost","root","","hospitalms");
-=======
-$con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
->>>>>>> origin/dev
-if(isset($_POST['patsub1']))
+if(isset($_POST['docsub1']))
 {
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $gender = $_POST['gender'];
-    $email = $_POST['email'];
-    $contact = $_POST['contact'];
-    $password = $_POST['password'];
-    $cpassword = $_POST['cpassword'];
-    if($password == $cpassword)
+    $dname= $_POST['username3'];
+    $dpass= $_POST['password3'];
+    $query = "SELECT * FROM doctb WHERE username='$dname' AND password='$dpass';";
+    $result = mysqli_query($con, $query);
+    if(mysqli_num_rows($result) == 1) 
     {
-        $query = "INSERT INTO patreg(fname, lname, gender, email, contact, password, cpassword) 
-        VALUES('$fname', '$lname', '$gender', '$email', '$contact', '$password', '$cpassword');";
-        $result = mysqli_query($con, $query);
-        if($result)
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) 
         {
-            $_SESSION['username'] = $_POST['fname']." ".$_POST['lname'];
-            $_SESSION['fname'] = $_POST['fname'];
-            $_SESSION['lname'] = $_POST['lname'];
-            $_SESSION['gender'] = $_POST['gender'];
-            $_SESSION['contact'] = $_POST['contact'];
-            $_SESSION['email'] = $_POST['email'];
-            header("Location:admin-panel.php");
-
+            $_SESSION['dname'] = $row['username'];
         }
-        $query1 = "select * from patreg;";
-        $result1 = mysqli_query($con, $query1);
-        if($result1)
-        {
-            $_SESSION['pid'] = $row['pid'];
-        }
+        header("Location: doctor-panel.php");
     }
-        else
-        {
-            header("Location:error1.php");
-        }
-    
+    else
+    {
+        // header("Location:error2.php");
+        echo "<script>alert('Invalid Username or Password. Try Again!');
+        window.location.href='index.php';</script>";
+    }
 }
-if(isset($_POST['update_data']))
+// if(isset($_POST['update_data']))  
+//   $result=mysqli_query($con,$query);
+//   if(mysqli_num_rows($result)==1)
+//   {
+//     $_SESSION['username']=$username;
+//     header("Location:admin-panel.php");
+//   }
+//   else
+//     header("Location:error2.php");
+
+function display_docs()
 {
-	$contact=$_POST['contact'];
-	$status=$_POST['status'];
-	$query="update appointmenttb set payment='$status' where contact='$contact';";
-	$result=mysqli_query($con,$query);
-	if($result)
-		header("Location:updated.php");
+    global $con;
+    $query = "SELECT * FROM doctb";
+    $result = mysqli_query($con, $query);
+    while($row = mysqli_fetch_array($result)) 
+    {
+        $name= $row['name'];
+        # echo'<option value="" disabled selected>Select Doctor</option>';
+        echo '<option value="'.$name.'">'.$name.'</option>';
+    }
 }
-
-
-
-
-// function display_docs()
+// if(isset($_POST['doc_sub']))
 // {
-// 	global $con;
-// 	$query="select * from doctb";
+// 	$name=$_POST['name'];
+// 	$query="insert into doctb(name)values('$name')";
 // 	$result=mysqli_query($con,$query);
-// 	while($row=mysqli_fetch_array($result))
-// 	{
-// 		$name=$row['name'];
-// 		# echo'<option value="" disabled selected>Select Doctor</option>';
-// 		echo '<option value="'.$name.'">'.$name.'</option>';
-// 	}
+// 	if($result)
+// 		header("Location:adddoc.php");
 // }
 
-if(isset($_POST['doc_sub']))
+function display_admin_panel()
 {
-	$name=$_POST['name'];
-	$query="insert into doctb(name)values('$name')";
-	$result=mysqli_query($con,$query);
-	if($result)
-		header("Location:adddoc.php");
-}
-function display_admin_panel(){
-	echo '<!DOCTYPE html>
+    echo '<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -93,8 +71,7 @@ function display_admin_panel(){
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item">
         <a class="nav-link" href="logout.php"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>

@@ -2,7 +2,11 @@
 <?php
 include('func.php');
 include('newfunc.php');
+<<<<<<< HEAD
+$con=mysqli_connect("localhost","root","","hospitalms");
+=======
 $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
 date_default_timezone_set('Asia/Kolkata');
 
 
@@ -87,7 +91,11 @@ if(isset($_GET['cancel']))
 
 
 function generate_bill(){
+<<<<<<< HEAD
+  $con=mysqli_connect("localhost","root","","hospitalms");
+=======
  $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
   $pid = $_SESSION['pid'];
   $output='';
   $query=mysqli_query($con,"select p.pid,p.ID,p.fname,p.lname,p.doctor,p.appdate,p.apptime,p.disease,p.allergy,p.prescription,a.docFees from prestb p inner join appointmenttb a on p.ID=a.ID and p.pid = '$pid' and p.ID = '".$_GET['ID']."'");
@@ -149,7 +157,11 @@ if (isset($_GET["generate_bill"])){
 
 
 function get_specs(){
+<<<<<<< HEAD
+    $con=mysqli_connect("localhost","root","","hospitalms");
+=======
     $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
     $query=mysqli_query("select username,spec from doctb");
     $docarray = array();
     while($row = mysqli_fetch_assoc($query))
@@ -317,7 +329,11 @@ function get_specs(){
                   
                   <!-- <?php
 
+<<<<<<< HEAD
+                        $con=mysqli_connect("localhost","root","","hospitalms");
+=======
                         $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
                         $query=mysqli_query($con,"select username,spec from doctb");
                         $docarray = array();
                           while($row =mysqli_fetch_assoc($query))
@@ -474,7 +490,11 @@ function get_specs(){
                 <tbody>
                   <?php 
 
+<<<<<<< HEAD
+                    $con=mysqli_connect("localhost","root","","hospitalms");
+=======
                     $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
                     global $con;
 
                     $query = "select ID,doctor,docFees,appdate,apptime,userStatus,doctorStatus from appointmenttb where fname ='$fname' and lname='$lname';";
@@ -551,7 +571,11 @@ function get_specs(){
                 <tbody>
                   <?php 
 
+<<<<<<< HEAD
+                    $con=mysqli_connect("localhost","root","","hospitalms");
+=======
                     $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
                     global $con;
 
                     $query = "select doctor,ID,appdate,apptime,disease,allergy,prescription from prestb where pid='$pid';";

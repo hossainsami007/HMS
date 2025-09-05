@@ -1,6 +1,10 @@
 <?php
 session_start();
+<<<<<<< HEAD
+$con=mysqli_connect("localhost","root","","hospitalms");
+=======
 $con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
+>>>>>>> origin/dev
 if(isset($_POST['search_submit'])){
   $contact=$_POST['contact'];
   $docname = $_SESSION['dname'];
