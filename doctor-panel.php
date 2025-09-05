@@ -1,11 +1,8 @@
+// Edited in araf branch
 <!DOCTYPE html>
 <?php
 include('func1.php');
-<<<<<<< HEAD
 $con=mysqli_connect("localhost","root","","hospitalms");
-=======
-$con=mysqli_connect("sql206.infinityfree.com","if0_39797306","QjCCG2F9cJ0dz","if0_39797306_hospitalms");
->>>>>>> origin/dev
 $doctor=$_SESSION['dname'];
 if(isset($_GET['cancel']))
 {
